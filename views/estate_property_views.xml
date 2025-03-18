@@ -1,11 +1,31 @@
 <?xml version="1.0"?>
 <odoo>
+
+    <!-- vista per Estate Property -->
+    <record id="view_estate_property_list" model="ir.ui.view">
+        <field name="name">estate.property.list</field>
+        <field name="model">estate.property</field>
+        <field name="arch" type="xml">
+            <list string="Property List">
+                <field name="name" />
+                <field name="property_type_id" />
+                <field name="postalcode" />
+                <field name="date_availability" />
+                <field name="selling_price" />
+                <field name="salesperson_id" />
+                <field name="state" />
+                <field name="tag_ids" widget="many2many_tags" />
+
+            </list>
+        </field>
+    </record>
+
     <!-- accions per Estate Property -->
     <record id="estate_property_action" model="ir.actions.act_window">
         <field name="name">Propietats</field>
         <field name="res_model">estate.property</field>
         <field name="view_mode">list,form</field>
-        <field name="view_id" ref="view_estate_property_tree" />
+        <field name="view_id" ref="view_estate_property_list" />
     </record>
 
     <!-- accions per Estate Property Tag -->
@@ -52,24 +72,6 @@
         </field>
     </record>
 
-    <!-- vista per Estate Property -->
-    <record id="view_estate_property_tree" model="ir.ui.view">
-        <field name="name">estate.property.tree</field>
-        <field name="model">estate.property</field>
-        <field name="arch" type="xml">
-            <list string="Property Tree">
-                <field name="name" />
-                <field name="property_type_id" />
-                <field name="postalcode" />
-                <field name="date_availability" />
-                <field name="selling_price" />
-                <field name="salesperson_id" />
-                <field name="state" />
-                <field name="tag_ids" widget="many2many_tags" />
-
-            </list>
-        </field>
-    </record>
 
     <!-- formulari per Estate Property -->
     <record id="view_estate_property_form" model="ir.ui.view">
